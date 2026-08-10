@@ -20,13 +20,15 @@ credential file accumulated
 
 Emptiness by deletion has a floor. Whatever arrives with the account or with
 the binary survives every reset and has to be turned off by settings instead
--- `permissions.deny` for the connectors, `disableBundledSkills` for the
-skills that ship inside the executable. See
+-- `disableClaudeAiConnectors` for the connectors, `disableBundledSkills` for
+the skills that ship inside the executable. See
 `../design.kb/040-design.kb/denied-tool-surface.md`.
 
-> [!QUESTION] does disableBundledSkills actually suppress bundled skills?
-> Only the connector half of this entry is probed. The bundled-skill half is
-> argued from the setting's existence -- hence the `inference` in this
-> entry's `established-by`. `../testing.kb/check-what-reaches-the-room.md`
-> adapts to settle it: ask a probe session to name the skills available to
-> it, with the setting and without.
+> [!QUESTION] do the suppression settings actually suppress anything?
+> What is probed is that the connectors arrive. That they can be turned off
+> -- by `disableClaudeAiConnectors`, or bundled skills by
+> `disableBundledSkills` -- is argued from the settings' existence and from
+> their use in the real `~/.claude/settings.json`, hence the `inference` in
+> this entry's `established-by`. `../testing.kb/check-what-reaches-the-room.md`
+> adapts to settle both in one run: ask a probe session to name the skills
+> and connectors available to it, with the settings and without.
