@@ -43,9 +43,11 @@ The scaffolding is invisible from inside the room only because
 `claudeMdExcludes` is `**`. An agent that narrows that setting must re-check
 what the root then leaks -- this file included.
 
-Settings are a separate question from memory: nothing here establishes
-whether a root `.claude/settings.json` would reach a session in `home/`.
-Until someone probes it, keep the root `.claude/` to `todo.md`.
+Settings are a separate question from memory, with the opposite answer: they
+load from the working directory and nowhere above it
+(`background.kb/settings-load-from-the-working-directory.md`), so the root
+`.claude/` is free. The site to watch is inside the room, where the ignore
+rules would hide one.
 
 ## Current Work
 

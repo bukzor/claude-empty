@@ -14,6 +14,7 @@ produces the same silence as a suppressed one.
 
     ( cd home && direnv exec . claude -p 'Reply with exactly one word: OK' )
     git -C <repo> status --short
+    test ! -e home/.claude
 
 ## Reading the result
 
@@ -30,3 +31,10 @@ non-interactive run creates `projects/`, `sessions/`, `backups/`, and
 ignored. Anything git reports is a hole in `home/.gitignore`, found at the
 cheapest possible moment -- with one file of exhaust rather than a month of
 it.
+
+The third line covers what `status` structurally cannot. Settings load from
+the working directory
+(`../background.kb/settings-load-from-the-working-directory.md`), which in
+the room is the room itself, and the ignore rules deny by default -- so a
+`.claude/` there would shape every session while `status` stays clean. It is
+the one contaminant a passing check actively conceals.

@@ -1,12 +1,11 @@
 # Todo
 
-- [ ] Probe whether a root `.claude/settings.json` reaches a session in `home/`
-  - `claudeMdExcludes` governs memory files and says nothing about settings,
-    so the repo root may be a settings injection site the way it was a memory
-    one; `CLAUDE.md` currently limits the root `.claude/` to `todo.md` on
-    that suspicion alone
-  - `testing.kb/measure-what-a-setting-suppresses.md` adapts: put a setting
-    with an observable effect in a parent `.claude/settings.json` and see
-    whether the room's session shows it
-  - On a pass, it becomes a `background.kb/` entry and the room needs a
-    defense; on a fail, `CLAUDE.md` loses a caveat
+- [ ] Probe whether granting a permission "always" writes into the room
+  - Settings load from the working directory, which in the room is also
+    `$HOME` and is ignored by default, so a `.claude/settings.local.json`
+    written there would shape every later session with `git status` clean
+  - Needs an interactive session -- `claude -p` never offers the choice:
+    grant one permission, then look for `home/.claude/`
+  - On a pass, `background.kb/settings-load-from-the-working-directory.md`
+    loses its `> [!QUESTION]`, and the room needs a defense the ignore rules
+    cannot provide
