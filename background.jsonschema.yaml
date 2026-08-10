@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://json-schema.org/draft-07/schema
+$schema: "http://json-schema.org/draft-07/schema#"
+description: >
+  An observed behavior of Claude Code or of this machine that the design has
+  to accommodate. Carries no `why:`: background motivates every layer and is
+  motivated by none.
+type: object
+additionalProperties: false
+required: [version, established-by]
+properties:
+  version:
+    description: >
+      The `claude --version` the claim was established under, and the only
+      place that version is recorded -- entry prose must not restate it.
+    type: string
+  established-by:
+    description: >
+      How the claim was established, weakest link first in an agent's
+      reading. `inference` means argued, never observed.
+    type: array
+    minItems: 1
+    items:
+      enum: [probe, documentation, inference]

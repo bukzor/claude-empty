@@ -40,7 +40,7 @@ does not stop at `$HOME`: a `CLAUDE.md` in this repo's root, one level above
 So the setting excludes everything, everywhere. Nothing is scoped to a path or a
 directory name, so nothing breaks when the repo is cloned elsewhere or renamed,
 and `.claude/rules/` is covered by the same pattern. That leaves the repo root
-free for a README, a LICENSE, `.github/workflows/`, and scripts. (A
+free for this README, the knowledge bases below, a LICENSE, and CI. (A
 managed-policy CLAUDE.md under `/etc/claude-code/` cannot be excluded by this or
 any other setting; there is none on this machine.)
 
@@ -52,6 +52,14 @@ Drop the line if an experiment needs a real project's CLAUDE.md.
 files plus the settings. A session leaves transcripts, caches, npm state,
 credentials, and its own copy of the `claude` binary behind; all of it stays
 untracked, and `git status` stays readable.
+
+## Where the reasoning lives
+
+Three knowledge bases at the root, for whoever next has to change `home/`:
+`background.kb/` for how Claude Code behaves, `design.kb/` for what this repo
+decided about it, `testing.kb/` for how to re-establish either. Every
+behavioral claim names the version it held under, because the program changes
+weekly and a contaminated room looks exactly like an empty one.
 
 ## Consequences
 
