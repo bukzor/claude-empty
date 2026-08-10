@@ -1,0 +1,14 @@
+# This directory *is* the disposable $HOME (see .envrc), so a session running
+# here scatters caches, transcripts, and credentials across it. Ignore
+# everything; allow back only the files that define the cleanroom.
+/*
+!/.envrc
+!/.gitignore
+!/CLAUDE.md
+
+# A re-included file needs each of its parent directories re-included first.
+!/.config/
+/.config/*
+!/.config/claude/
+/.config/claude/*
+!/.config/claude/settings.json

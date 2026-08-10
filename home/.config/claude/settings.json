@@ -1,6 +1,9 @@
 {
   "theme": "dark",
   "claudeMdExcludes": [
+    "**/claude-empty/CLAUDE.md",
+    "**/claude-empty/CLAUDE.local.md",
+    "**/claude-empty/.claude/**",
     "/home/bukzor/.claude/CLAUDE.md",
     "/home/bukzor/.claude/rules/**",
     "/home/bukzor/CLAUDE.md"

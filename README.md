@@ -7,29 +7,40 @@ reports, reproductions worth sharing.
 
 ## Use
 
-    cd ~/repo/claude-empty
+    cd ~/repo/claude-empty/home
     direnv allow   # first time only
     claude
 
-`.envrc` points `HOME` and `CLAUDE_CONFIG_DIR` at this directory, so Claude
-reads `.config/claude/settings.json` and finds no user memory, no skills, and
-no plugins. `CLAUDE.md` is deliberately empty: a marker that says don't write
+`home/.envrc` points `HOME` and `CLAUDE_CONFIG_DIR` at `home/`, so Claude reads
+`home/.config/claude/settings.json` and finds no user memory, no skills, and no
+plugins. `home/CLAUDE.md` is deliberately empty: a marker that says don't write
 one, and it keeps `/init` from filling the room back up.
 
-`claudeMdExcludes` in the settings names the real `$HOME` paths by hand. That is
-redundant while `.envrc` is loaded, and the whole point of the repo when it
-isn't -- keep it.
+The `.envrc` lives in `home/`, not at the repo root, so the redirect applies
+only inside the room. Work on the repo itself -- editing this README, running
+CI, committing -- keeps your real `$HOME` and your real `~/.gitconfig`.
+
+## Keep the repo root out of the room
+
+Claude Code finds project instructions by walking up from the working directory,
+and it does not stop at `$HOME`. A `CLAUDE.md`, `CLAUDE.local.md`, or `.claude/`
+at the repo root would therefore load into every cleanroom session -- the exact
+pollution this repo exists to avoid. Don't add any of the three. The
+`claudeMdExcludes` in the settings block them as a backstop, but that list
+matches on the directory being named `claude-empty`, so it is insurance, not a
+guarantee. Anything else at the root is invisible from inside `home/` and safe:
+README, LICENSE, `.github/workflows/`, scripts.
 
 ## What's tracked
 
-`.gitignore` denies everything, then allows back the four files above. A
-session leaves transcripts, caches, npm state, credentials, and its own copy of
-the `claude` binary behind; all of it stays untracked, and `git status` stays
-readable.
+`home/.gitignore` denies everything under `home/`, then allows back the three
+files plus the settings. A session leaves transcripts, caches, npm state,
+credentials, and its own copy of the `claude` binary behind; all of it stays
+untracked, and `git status` stays readable.
 
 ## Consequences
 
-Redirecting `HOME` empties out every other tool too: inside the cleanroom `git`
-has no `~/.gitconfig` (no identity, no aliases) and `gh` has no auth. That is
-the intent, not a bug. Drop the dotfiles an experiment needs into the repo and
-ignore them.
+Redirecting `HOME` empties out every other tool too: inside the room `git` has
+no `~/.gitconfig` (no identity, no aliases) and `gh` has no auth. That is the
+intent, not a bug. Drop the dotfiles an experiment needs into `home/` and let
+the ignore rules swallow them.
