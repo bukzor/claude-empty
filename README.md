@@ -16,8 +16,8 @@ reports, reproductions worth sharing.
 plugins.
 
 The `.envrc` lives in `home/`, not at the repo root, so the redirect applies only
-inside the room. Work on the repo itself -- editing this README, running CI,
-committing -- keeps your real `$HOME` and your real `~/.gitconfig`.
+inside the room. Work on the repo itself -- editing this README, committing,
+pushing -- keeps your real `$HOME` and your real `~/.gitconfig`.
 
 ## The room starts logged out
 
@@ -40,7 +40,7 @@ does not stop at `$HOME`: a `CLAUDE.md` in this repo's root, one level above
 So the setting excludes everything, everywhere. Nothing is scoped to a path or a
 directory name, so nothing breaks when the repo is cloned elsewhere or renamed,
 and `.claude/rules/` is covered by the same pattern. That leaves the repo root
-free for this README, the knowledge bases below, a LICENSE, and CI. (A
+free for this README, the knowledge bases below, and a LICENSE. (A
 managed-policy CLAUDE.md under `/etc/claude-code/` cannot be excluded by this or
 any other setting; there is none on this machine.)
 
@@ -49,9 +49,10 @@ Drop the line if an experiment needs a real project's CLAUDE.md.
 ## What's tracked
 
 `home/.gitignore` denies everything under `home/`, then allows back the two
-files plus the settings. A session leaves transcripts, caches, npm state,
-credentials, and its own copy of the `claude` binary behind; all of it stays
-untracked, and `git status` stays readable.
+files plus the settings. A session leaves transcripts, session state, and
+credentials behind, and once the room updates itself, caches, npm state, and
+its own copy of the `claude` binary too; all of it stays untracked, and
+`git status` stays readable.
 
 ## Where the reasoning lives
 

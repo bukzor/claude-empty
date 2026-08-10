@@ -19,8 +19,8 @@ agent maintaining it.
   the design works around, not choices this repo made.
 - `design.kb/` -- what this repo decided, and why, in the layered form
   `Skill(llm-design-kb)` defines.
-- `testing.kb/` -- procedures that re-establish the claims in
-  `background.kb/` instead of trusting them.
+- `testing.kb/` -- procedures that check the room and re-establish the claims
+  in `background.kb/`, instead of trusting either.
 
 ## Every behavioral claim is version-scoped
 

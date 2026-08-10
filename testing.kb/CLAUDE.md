@@ -5,10 +5,10 @@ Procedures that re-establish this repo's claims about Claude Code, so
 
 ## What Belongs Here
 
-- A procedure with a control and a treatment, written so it can be run
-  without reading the entry that motivated it
-- What a pass and a failure look like, concretely, including the failure that
-  looks like a pass
+- A procedure that checks the room, or re-establishes a claim about it,
+  written so it can be run without reading the entry that motivated it
+- What a pass and a failure look like, concretely -- including the failure
+  that looks like a pass, which for a probe is a control nobody checked
 
 ## What Does NOT Belong Here
 
