@@ -26,7 +26,9 @@ file's content fixed and moving it.
 4. Read `.modelUsage | keys` from each arm, and the sum of `.usage`'s
    `input_tokens`, `cache_creation_input_tokens`, and
    `cache_read_input_tokens`.
-5. Remove the probe directory. It contains a link to real credentials.
+5. Unlink the probe's `.credentials.json`, the one part of it that is not
+   disposable. The rest stays where it was built: it is already in `trash/`,
+   and the arms are the evidence behind the entry they established.
 
 ## Reading the result
 

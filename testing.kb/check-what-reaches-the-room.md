@@ -26,7 +26,9 @@ session to report it back.
        )
 
 4. Run the treatment, with the setting present.
-5. Remove the probe directory. It contains a link to real credentials.
+5. Unlink the probe's `.credentials.json`, the one part of it that is not
+   disposable. The rest stays where it was built: it is already in `trash/`,
+   and a probe worth re-reading is worth not deleting.
 
 ## Reading the result
 
