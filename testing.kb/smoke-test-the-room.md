@@ -13,8 +13,7 @@ produces the same silence as a suppressed one.
 ## Procedure
 
     ( cd home && direnv exec . claude -p 'Reply with exactly one word: OK' )
-    git -C <repo> status --short
-    test ! -e home/.claude
+    git -C <repo> status --short home/
 
 ## Reading the result
 
@@ -28,13 +27,16 @@ wrong.
 The `status` half is the point of running them together. A single
 non-interactive run creates `projects/`, `sessions/`, `backups/`, and
 `.claude.json` in the config dir, and every one of them must come back
-ignored. Anything git reports is a hole in `home/.gitignore`, found at the
-cheapest possible moment -- with one file of exhaust rather than a month of
-it.
+ignored.
 
-The third line covers what `status` structurally cannot. Settings load from
-the working directory
-(`../background.kb/settings-load-from-the-working-directory.md`), which in
-the room is the room itself, and the ignore rules deny by default -- so a
-`.claude/` there would shape every session while `status` stays clean. It is
-the one contaminant a passing check actively conceals.
+Anything else git reports is a session writing somewhere this repo has not
+seen it write before, which is a finding rather than a failure: read it,
+then add the path to `home/.gitignore` with a note saying what produced it
+(`../design.kb/040-design.kb/ignores-name-only-known-exhaust.md`). A
+modification to `.claude/settings.local.json` is the loudest such finding
+(`../design.kb/040-design.kb/tracked-tripwire-for-local-settings.md`) --
+something wrote settings into the room.
+
+The check is total, not partial: the ignore rules name only exhaust already
+observed, so a clean `status` is a claim about the room rather than an
+artifact of a blanket rule.

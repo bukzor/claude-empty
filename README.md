@@ -46,13 +46,29 @@ any other setting; there is none on this machine.)
 
 Drop the line if an experiment needs a real project's CLAUDE.md.
 
-## What's tracked
+## What's tracked, and what git will tell you
 
-`home/.gitignore` denies everything under `home/`, then allows back the two
-files plus the settings. A session leaves transcripts, session state, and
-credentials behind, and once the room updates itself, caches, npm state, and
-its own copy of the `claude` binary too; all of it stays untracked, and
-`git status` stays readable.
+`home/` tracks four files: `.envrc`, `.gitignore`, the settings that define
+the room, and an empty `.claude/settings.local.json` that exists to be diffed
+if anything ever writes settings into the room.
+
+`home/.gitignore` names the state a session is known to leave -- transcripts,
+session state, the credential file -- and ignores nothing else. Anything a
+session leaves at a path this repo has not seen before therefore shows up in
+`git status` as untracked, which is the alarm rather than a defect: expect
+the first interactive session, or the first time the room updates its own
+binary, to surface names that are not on the list yet. Adding them is how the
+repo records what the tool actually writes.
+
+## Reset the room
+
+    git clean -nxd home/   # preview first; read it
+    git clean -xd home/
+
+The `-x` is what makes it complete, since the state you want gone is exactly
+the state that is ignored. Tracked files survive, which is the definition of
+the room. The credential file goes with everything else, so re-link it
+afterwards.
 
 ## Where the reasoning lives
 

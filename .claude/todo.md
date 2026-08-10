@@ -1,11 +1,12 @@
 # Todo
 
-- [ ] Probe whether granting a permission "always" writes into the room
-  - Settings load from the working directory, which in the room is also
-    `$HOME` and is ignored by default, so a `.claude/settings.local.json`
-    written there would shape every later session with `git status` clean
-  - Needs an interactive session -- `claude -p` never offers the choice:
-    grant one permission, then look for `home/.claude/`
-  - On a pass, `background.kb/settings-load-from-the-working-directory.md`
-    loses its `> [!QUESTION]`, and the room needs a defense the ignore rules
-    cannot provide
+- [ ] Run one interactive session in the room and record what it writes
+  - The ignore rules now name only exhaust that has actually been observed,
+    and every session so far has been `claude -p`; an interactive one will
+    write names nobody has seen yet
+  - Each new name goes into `home/.gitignore` with a note saying what
+    produced it -- that is the discovery being recorded
+  - It also settles the open `> [!QUESTION]` in
+    `background.kb/settings-load-from-the-working-directory.md` for free:
+    grant one permission "always" and see whether
+    `home/.claude/settings.local.json` comes back modified

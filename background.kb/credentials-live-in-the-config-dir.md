@@ -26,6 +26,6 @@ An empty room is an unusable room until it is seeded, so the credential file
 is a deliberate exception to
 `../design.kb/020-goals.kb/no-inherited-state.md` -- and the only one.
 
-It is also why the room's ignore rules deny by default rather than listing
-exclusions: the file that must never be committed is one a session creates on
-its own, at a dotfile path that no reasonable denylist would have named.
+It is also the only reason the room's ignore rules can name the one file that
+must never be committed. A session creates it unprompted, at a dotfile path
+an inventory taken with `ls -R` does not report.

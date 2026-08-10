@@ -33,13 +33,17 @@ room's own model on 8.0k, against the control's 8.1k.
 The repo root is not a settings injection site the way it is a memory-file
 one, so the root `.claude/` is free to hold whatever this repo needs.
 
-The room's own root is the injection site, and it is the one place a
-contaminant would be invisible: `home/.gitignore` denies by default, so a
-`settings.json` appearing there is ignored rather than reported, and it would
-shape every later session in the room.
+The room's own root is the injection site: a `.claude/settings.json` or
+`.claude/settings.local.json` appearing in `home/` shapes every later session
+there. The design answers that twice over -- the ignore rules leave such a
+file untracked and therefore reported
+(`../design.kb/040-design.kb/ignores-name-only-known-exhaust.md`), and an
+empty one is committed under the second name so that a write to it is a diff
+(`../design.kb/040-design.kb/tracked-tripwire-for-local-settings.md`).
 
 > [!QUESTION] does granting a permission "always" write into the room?
 > Claude Code records such a grant in a `.claude/settings.local.json`. If it
 > writes it beside the working directory, one keystroke inside the room
-> contaminates every session after it. Settled by granting one and looking,
-> which needs an interactive session rather than `claude -p`.
+> contaminates every session after it. Settling it needs an interactive
+> session rather than `claude -p` -- or nothing at all, since the tripwire
+> reports the answer the first time it happens.

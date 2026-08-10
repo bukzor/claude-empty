@@ -1,13 +1,22 @@
-# This directory *is* the disposable $HOME (see .envrc), so a session running
-# here scatters caches, transcripts, and credentials across it. Ignore
-# everything; allow back only the files that define the cleanroom.
-/*
-!/.envrc
-!/.gitignore
+# This directory *is* the disposable $HOME (see .envrc), so a session writes
+# its own state here. Name what a session is known to write, and nothing
+# more: anything unnamed lands in `git status` as an untracked file, which is
+# how this room finds out that something new pollutes it.
+#
+# Adding a line is therefore a discovery, not housekeeping -- say what wrote
+# it. Clearing the room is `git clean -xd home/`, and the -x is needed
+# precisely because these paths are ignored.
 
-# A re-included file needs each of its parent directories re-included first.
-!/.config/
-/.config/*
-!/.config/claude/
-/.config/claude/*
-!/.config/claude/settings.json
+# Re-include everything first: the user's ~/.config/git/ignore hides
+# `**/.claude/settings.local.json`, `**/CLAUDE.local.md`, `tmp/`, and `*.log`
+# in every repo, and each of those is something this room needs to see. What
+# the room reports must not depend on a file outside the repo.
+!/**
+
+# Claude Code's config dir, per .envrc
+/.config/claude/.claude.json
+/.config/claude/.credentials.json
+/.config/claude/.last-cleanup
+/.config/claude/backups/
+/.config/claude/projects/
+/.config/claude/sessions/
