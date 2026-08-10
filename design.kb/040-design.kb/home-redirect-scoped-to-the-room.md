@@ -8,7 +8,8 @@ why:
 `home/.envrc` exports `HOME=$PWD` and
 `CLAUDE_CONFIG_DIR=$PWD/.config/claude`. direnv evaluates an `.envrc` with the
 working directory set to the file's own directory, so `$PWD` names the room
-even when you enter through a subdirectory of it.
+whether you enter through a subdirectory of it or through a symlink to it --
+the redirect resolves to the physical path either way.
 
 The file sits in `home/` rather than at the repo root so that the redirect
 covers the room and nothing else. Maintaining this repo -- editing docs,

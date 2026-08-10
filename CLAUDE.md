@@ -4,6 +4,7 @@ requires:
     - Skill(llm-kb)
 depends:
     - Skill(llm-design-kb)
+    - Skill(llm-subtask)
 ---
 
 # claude-empty
@@ -41,3 +42,12 @@ inside `home/` should be committed beyond the files that define the room.
 The scaffolding is invisible from inside the room only because
 `claudeMdExcludes` is `**`. An agent that narrows that setting must re-check
 what the root then leaks -- this file included.
+
+Settings are a separate question from memory: nothing here establishes
+whether a root `.claude/settings.json` would reach a session in `home/`.
+Until someone probes it, keep the root `.claude/` to `todo.md`.
+
+## Current Work
+
+`.claude/todo.md` holds the open threads. Load `Skill(llm-subtask)` to
+maintain it.
