@@ -22,6 +22,9 @@ which is the one failure mode git will not surface.
    indistinguishable from one that was never rechecked.
 4. Recheck the entries whose `established-by:` includes `inference` hardest.
    Nothing observed them holding under the old version either.
+5. Re-run `measure-what-a-setting-suppresses.md` if the room's token count
+   moved. A setting that quietly stopped working restores several thousand
+   tokens of context, which is visible before any behavior is.
 
 ## Reading the result
 

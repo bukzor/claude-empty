@@ -1,29 +1,10 @@
 {
   "theme": "dark",
-  "claudeMdExcludes": ["**"],
-  "skillOverrides": {
-    "claude-in-chrome": "user-invocable-only",
-    "artifact-capabilities": "user-invocable-only",
-    "schedule": "user-invocable-only",
-    "artifact-diagramming": "user-invocable-only",
-    "artifact-design": "user-invocable-only",
-    "dataviz": "user-invocable-only",
-    "claude-api": "user-invocable-only",
-    "update-config": "user-invocable-only",
-    "run": "user-invocable-only",
-    "loop": "user-invocable-only",
-    "keybindings-help": "user-invocable-only",
-    "fewer-permission-prompts": "user-invocable-only",
-    "simplify": "user-invocable-only",
-    "security-review": "user-invocable-only",
-    "review": "user-invocable-only",
-    "init": "user-invocable-only"
-  },
+  "claudeMdExcludes": [
+    "**"
+  ],
   "permissions": {
     "deny": [
-      "mcp__claude_ai_Gmail",
-      "mcp__claude_ai_Google_Calendar",
-      "mcp__claude_ai_Google_Drive",
       "AskUserQuestion",
       "EnterPlanMode",
       "ExitPlanMode",

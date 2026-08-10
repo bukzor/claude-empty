@@ -4,7 +4,6 @@
 /*
 !/.envrc
 !/.gitignore
-!/CLAUDE.md
 
 # A re-included file needs each of its parent directories re-included first.
 !/.config/

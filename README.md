@@ -13,7 +13,7 @@ reports, reproductions worth sharing.
 
 `home/.envrc` points `HOME` and `CLAUDE_CONFIG_DIR` at `home/`, so Claude reads
 `home/.config/claude/settings.json` and finds no user memory, no skills, and no
-plugins. `home/CLAUDE.md` is deliberately empty: a marker saying don't write one.
+plugins.
 
 The `.envrc` lives in `home/`, not at the repo root, so the redirect applies only
 inside the room. Work on the repo itself -- editing this README, running CI,
@@ -48,7 +48,7 @@ Drop the line if an experiment needs a real project's CLAUDE.md.
 
 ## What's tracked
 
-`home/.gitignore` denies everything under `home/`, then allows back the three
+`home/.gitignore` denies everything under `home/`, then allows back the two
 files plus the settings. A session leaves transcripts, caches, npm state,
 credentials, and its own copy of the `claude` binary behind; all of it stays
 untracked, and `git status` stays readable.

@@ -18,7 +18,8 @@ relocates the user-scope lookup; it does not stop the walk.
 Via `../testing.kb/check-what-reaches-the-room.md`. A `CLAUDE.md` placed
 one directory *above* a redirected `HOME` returned its marker verbatim
 from `claude -p`, as did a `.claude/rules/*.md` inside the redirected home.
-Both returned `NONE` once `claudeMdExcludes` was set to `["**"]`.
+Both returned `NONE` once `claudeMdExcludes` was set to `["**"]`, as did a
+`CLAUDE.md` at the redirected home's own root.
 
 ## Consequence
 
