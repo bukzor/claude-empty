@@ -5,9 +5,15 @@ why:
 
 # The tool surface is denied, not merely absent
 
-`home/.config/claude/settings.json` denies some thirty tools and connectors
-outright and sets `disableBundledSkills` and `disableWorkflows`, rather than
-trusting an empty config dir to leave them unavailable.
+`home/.config/claude/settings.json` denies some thirty tools outright and
+sets `disableBundledSkills`, `disableClaudeAiConnectors`, and
+`disableWorkflows`, rather than trusting an empty config dir to leave them
+unavailable.
+
+The connectors are covered twice over -- by the blanket setting and by three
+`mcp__claude_ai_*` denies that predate it. The setting is the one that
+survives a fourth connector being added, so the names go once a probe
+confirms it works alone.
 
 Deletion has a floor. The claude.ai connectors arrive with the account
 (`../../background.kb/connectors-attach-from-the-account.md`) and bundled

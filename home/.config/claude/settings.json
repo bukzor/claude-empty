@@ -54,6 +54,7 @@
   },
   "model": "claude-fable-5[1m]",
   "disableBundledSkills": true,
+  "disableClaudeAiConnectors": true,
   "disableWorkflows": true,
   "effortLevel": "high",
   "autoMemoryEnabled": false
