@@ -46,6 +46,12 @@ it was hiding this room's own tripwire until `!/**` was added. That failure
 is silent from inside the repo: the rule is real, applies, and is written
 somewhere this repo does not version.
 
+Read *which* rule matched, not merely that one did. Half of these patterns
+were once written with a trailing `#` comment, which gitignore does not
+have: the comment text joined the pattern and the pattern then matched
+nothing. Every path fell through to `!/**` and stayed visible, which reads
+exactly like a correctly visible path unless you check the rule.
+
 Neither half can catch a rule that ignores a file git already tracks, since
 tracked paths are never consulted against `.gitignore`. That one shows up
 only in `add --dry-run`, which is why all three run.

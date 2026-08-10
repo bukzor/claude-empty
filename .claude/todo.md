@@ -1,12 +1,14 @@
 # Todo
 
-- [ ] Run one interactive session in the room and record what it writes
-  - The ignore rules now name only exhaust that has actually been observed,
-    and every session so far has been `claude -p`; an interactive one will
-    write names nobody has seen yet
-  - Each new name goes into `home/.gitignore` with a note saying what
-    produced it -- that is the discovery being recorded
-  - It also settles the open `> [!QUESTION]` in
-    `background.kb/settings-load-from-the-working-directory.md` for free:
-    grant one permission "always" and see whether
-    `home/.claude/settings.local.json` comes back modified
+- [ ] Find whether the plugin-marketplace clone can be suppressed
+  - A first interactive start clones the official marketplace into
+    `home/.config/claude/plugins/`
+    (`background.kb/interactive-startup-populates-the-room.md`), so the room
+    is plugin-free by configuration but not by contents
+  - Look for a setting that prevents it; if there is none, say so in that
+    entry and treat the clone as exhaust rather than leaving the question open
+- [ ] Settle whether a permission granted "always" writes into the room
+  - The tripwire survived the first interactive session unmodified, but that
+    session granted no permissions, so nothing was tested
+  - `background.kb/settings-load-from-the-working-directory.md` holds the
+    `> [!QUESTION]`; one granted permission answers it

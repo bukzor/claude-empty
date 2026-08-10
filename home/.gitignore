@@ -6,6 +6,9 @@
 # Adding a line is therefore a discovery, not housekeeping -- say what wrote
 # it. Clearing the room is `git clean -xd home/`, and the -x is needed
 # precisely because these paths are ignored.
+#
+# A trailing `#` is not a comment here: it becomes part of the pattern, and
+# the pattern then matches nothing. Comments go on their own line.
 
 # Re-include everything first: the user's ~/.config/git/ignore hides
 # `**/.claude/settings.local.json`, `**/CLAUDE.local.md`, `tmp/`, and `*.log`
@@ -13,10 +16,35 @@
 # the room reports must not depend on a file outside the repo.
 !/**
 
-# Claude Code's config dir, per .envrc
+# Claude Code's config dir, per .envrc. These six appear under `claude -p`.
 /.config/claude/.claude.json
 /.config/claude/.credentials.json
 /.config/claude/.last-cleanup
 /.config/claude/backups/
 /.config/claude/projects/
 /.config/claude/sessions/
+
+# The rest were added by the room's first interactive session, 2026-08-10.
+# None of them appear under `claude -p`; see
+# ../background.kb/interactive-startup-populates-the-room.md
+
+# the changelog, and a lookup of the account's closed issues
+/.config/claude/cache/
+
+# every prompt typed in the room, verbatim
+/.config/claude/history.jsonl
+
+# the official plugin marketplace, cloned on first interactive start
+/.config/claude/plugins/
+
+# the copy of the binary it installs for itself, and its staging area
+/.cache/claude/
+/.local/share/claude/
+/.local/state/claude/
+
+# registered during the login flow
+/.local/share/applications/claude-code-url-handler.desktop
+
+# Claude Code shells out to `gh`, which finds no config of its own here
+/.cache/gh/
+/.local/state/gh/

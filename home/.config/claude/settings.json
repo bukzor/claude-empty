@@ -1,8 +1,4 @@
 {
-  "theme": "dark",
-  "claudeMdExcludes": [
-    "**"
-  ],
   "permissions": {
     "deny": [
       "AskUserQuestion",
@@ -34,9 +30,13 @@
     ]
   },
   "model": "claude-fable-5[1m]",
-  "disableBundledSkills": true,
   "disableClaudeAiConnectors": true,
+  "disableBundledSkills": true,
   "disableWorkflows": true,
   "effortLevel": "high",
-  "autoMemoryEnabled": false
+  "autoMemoryEnabled": false,
+  "claudeMdExcludes": [
+    "**"
+  ],
+  "theme": "dark"
 }

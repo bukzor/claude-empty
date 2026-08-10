@@ -46,8 +46,16 @@ what the root then leaks -- this file included.
 Settings are a separate question from memory, with the opposite answer: they
 load from the working directory and nowhere above it
 (`background.kb/settings-load-from-the-working-directory.md`), so the root
-`.claude/` is free. The site to watch is inside the room, where the ignore
-rules would hide one.
+`.claude/` is free. The site to watch is inside the room, which is why a
+settings file appearing there is reported rather than ignored, and why an
+empty one is committed to be diffed against.
+
+Scaffolding and room are separate jobs, but not separate trees: a tool run
+at the root walks into `home/`, which after one interactive session holds
+thousands of vendored files it did not put there
+(`background.kb/interactive-startup-populates-the-room.md`). Scope validators
+and searches to the three `.kb/` directories, or read a result that is mostly
+someone else's plugins.
 
 ## Current Work
 
