@@ -18,11 +18,20 @@ anyway, because it makes a contaminated room and a clean one produce
 identical output. The one thing it optimizes -- a quiet `git status` -- is
 the instrument this repo reads.
 
-The abstract argument also lost on the facts. After several sessions the
-room's exhaust is six paths, all inside `.config/claude/`, not the unbounded
-scatter the earlier reasoning assumed. Where that stops being true -- an
-interactive session, a self-update -- the list grows by a line, and the line
-records a discovery instead of performing a chore.
+The abstract argument also lost on the facts, then partly won them back. A
+day of `claude -p` produced six paths, all inside `.config/claude/` -- not
+the unbounded scatter the earlier reasoning assumed. The room's first
+interactive session added nine more across `.cache/`, `.local/share/`, and
+`.local/state/`, one of them a forty-plugin clone
+(`../../background.kb/interactive-startup-populates-the-room.md`). The
+exhaust is scattered after all.
+
+That is the case for this rule rather than against it. Under `/*` those nine
+would have arrived in silence, and the room would have looked exactly as
+clean the day after as the day before. Under this rule they arrived as a
+`git status` nobody had to think to run, and each is now named with what
+wrote it. A list that grows is the cost; a list that goes stale without
+saying so is the alternative.
 
 The file opens with `!/**`, re-including everything, because the user's
 global ignore file hides `**/.claude/settings.local.json`, `**/CLAUDE.local.md`,

@@ -55,10 +55,12 @@ if anything ever writes settings into the room.
 `home/.gitignore` names the state a session is known to leave -- transcripts,
 session state, the credential file -- and ignores nothing else. Anything a
 session leaves at a path this repo has not seen before therefore shows up in
-`git status` as untracked, which is the alarm rather than a defect: expect
-the first interactive session, or the first time the room updates its own
-binary, to surface names that are not on the list yet. Adding them is how the
-repo records what the tool actually writes.
+`git status` as untracked, which is the alarm rather than a defect. That is
+where most of the list came from: the room's first interactive session
+reported nine paths at once -- its own copy of the binary, the plugin
+marketplace, a verbatim prompt history -- none of which any amount of
+`claude -p` had produced. Adding them is how the repo records what the tool
+actually writes, so expect to add more.
 
 ## Reset the room
 
@@ -69,6 +71,10 @@ The `-x` is what makes it complete, since the state you want gone is exactly
 the state that is ignored. Tracked files survive, which is the definition of
 the room. The credential file goes with everything else, so re-link it
 afterwards.
+
+After interactive use the room is about 66M, nearly all of it a cached copy
+of the binary the room installed for itself plus the plugin marketplace it
+cloned. Resetting throws both away and the next start fetches them again.
 
 ## Where the reasoning lives
 

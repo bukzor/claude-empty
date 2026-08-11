@@ -40,3 +40,9 @@ something wrote settings into the room.
 The check is total, not partial: the ignore rules name only exhaust already
 observed, so a clean `status` is a claim about the room rather than an
 artifact of a blanket rule.
+
+Total over what this procedure runs, which is one non-interactive session. An
+interactive start writes nine paths that `claude -p` never produces
+(`../background.kb/interactive-startup-populates-the-room.md`), so the first
+interactive session in a fresh or freshly-cleaned room wants the same
+`status` afterward. That is how those nine were found.

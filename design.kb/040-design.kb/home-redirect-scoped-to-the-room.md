@@ -21,3 +21,9 @@ Redirecting `HOME` empties every other tool that reads `~`, not just Claude
 Code: `git` loses its config, `gh` its auth. That is intended. An experiment
 that needs those configured places the dotfiles in `home/`, where the ignore
 rules swallow them, rather than reaching outside for them.
+
+The reach is wider than the tools a person runs. Claude Code shells out to
+`gh`, which found no configuration in the redirected home and created its own
+state there (`../../background.kb/interactive-startup-populates-the-room.md`)
+-- one program pulling another into the room, without either being named
+here.
