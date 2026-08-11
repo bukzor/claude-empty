@@ -35,7 +35,13 @@ sits down in.
 
 The marketplace clone is the sharpest instance: "no plugins" describes the
 room's configuration, not its contents, from the first interactive start
-onward. Nothing here establishes whether that clone can be suppressed.
+onward.
+
+> [!QUESTION] can the marketplace clone be suppressed?
+> Nothing here establishes that it can. It costs 6.3 MB and no behavior --
+> the plugins are cloned, not enabled -- so this matters only to someone who
+> wants the room's contents to match its configuration, or who is reporting
+> a bug about plugin loading.
 
 The self-update is the largest of these and the only one that failed. It
 accounts for 59 of the room's 66 MB and installs nothing: the room runs the

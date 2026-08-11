@@ -59,5 +59,20 @@ someone else's plugins.
 
 ## Current Work
 
-`.claude/todo.md` holds the open threads. Load `Skill(llm-subtask)` to
-maintain it.
+There is no task list, deliberately. What is open here is open questions,
+and they live as `> [!QUESTION]` blocks in the entry each one belongs to:
+
+    grep -rn '\[!QUESTION\]' background.kb design.kb testing.kb
+
+Every one of them settles as a side effect of using the room -- the tripwire
+reports a settings write the first time it happens, `du` shows a repeated
+download -- so none of them is worth scheduling ahead of the use that
+answers it. A question that does not resolve that way is a probe, and a
+probe belongs in `testing.kb/` as a procedure, not on a list as an
+intention.
+
+The standing obligation is the other direction: the room runs the machine's
+Claude Code (`background.kb/the-binary-comes-from-outside-the-room.md`), so
+every claim here is provisional until re-checked under the version in front
+of you. That is `testing.kb/after-a-claude-code-upgrade.md`, and it is a
+precondition of trusting a result, not an item to work off.
