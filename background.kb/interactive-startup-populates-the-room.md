@@ -37,14 +37,9 @@ The marketplace clone is the sharpest instance: "no plugins" describes the
 room's configuration, not its contents, from the first interactive start
 onward. Nothing here establishes whether that clone can be suppressed.
 
-> [!QUESTION] did the self-update finish, or fail halfway?
-> The staged binary is 61 MB and not executable; the file under `versions/`
-> is zero bytes. That reads either as an install that never completed or as
-> a marker scheme where the version directory records intent and the payload
-> stays in the cache. Which one it is decides whether the room silently runs
-> a different binary than the outer `$HOME` does -- and 59 of the room's
-> 66 MB hang on the answer. Settles by watching a second interactive start,
-> or by `strace`-ing the exec.
+The self-update is the largest of these and the only one that failed. It
+accounts for 59 of the room's 66 MB and installs nothing: the room runs the
+machine's binary regardless (`the-binary-comes-from-outside-the-room.md`).
 
 Two of these matter beyond the ignore file. `history.jsonl` is a verbatim
 record of what was typed into a room whose purpose is unguarded experiments.

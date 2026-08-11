@@ -5,10 +5,12 @@ why:
 
 # After a Claude Code upgrade
 
-The room auto-updates its own copy of the binary, and every claim in
-`../background.kb/` names the version it held under. An upgrade can therefore
-invalidate this repo's central claim without changing a single tracked file,
-which is the one failure mode git will not surface.
+The room runs the machine's binary rather than one of its own
+(`../background.kb/the-binary-comes-from-outside-the-room.md`), and every
+claim in `../background.kb/` names the version it held under. Upgrading
+Claude Code anywhere on this machine therefore invalidates this repo's
+central claim without changing a single file, tracked or ignored, which is
+the one failure mode git will not surface.
 
 ## Procedure
 

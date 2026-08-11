@@ -72,9 +72,10 @@ the state that is ignored. Tracked files survive, which is the definition of
 the room. The credential file goes with everything else, so re-link it
 afterwards.
 
-After interactive use the room is about 66M, nearly all of it a cached copy
-of the binary the room installed for itself plus the plugin marketplace it
-cloned. Resetting throws both away and the next start fetches them again.
+After interactive use the room is about 66M, nearly all of it a half-finished
+attempt to install a second copy of Claude Code, plus the plugin marketplace
+it cloned. Throwing that away costs nothing: the room runs the binary on your
+`PATH`, not the one it downloaded.
 
 ## Where the reasoning lives
 
@@ -90,3 +91,8 @@ Redirecting `HOME` empties out every other tool too: inside the room `git` has n
 `~/.gitconfig` (no identity, no aliases) and `gh` has no auth. That is the intent,
 not a bug. Drop the dotfiles an experiment needs into `home/` and let the ignore
 rules swallow them.
+
+The one thing the room does not supply is Claude Code itself. `PATH` is
+untouched, and `~/.local/bin/claude` is an absolute symlink into your real
+`$HOME`, so upgrading Claude Code anywhere on the machine changes what the
+room runs, invisibly. Re-check anything you concluded here after an upgrade.
