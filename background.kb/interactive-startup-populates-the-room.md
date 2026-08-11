@@ -6,8 +6,9 @@ established-by: [probe]
 # An interactive start populates the room; `claude -p` does not
 
 A first interactive session writes nine paths that no amount of
-non-interactive use produces. It installs its own copy of the binary under
-`.local/share/claude/versions/`, staged through `.cache/claude/`. It clones
+non-interactive use produces. It downloads a 61 MB copy of the binary into
+`.cache/claude/staging/<version>.<n>.<n>/claude` and leaves a zero-byte file
+named for that version at `.local/share/claude/versions/`. It clones
 the official plugin marketplace -- some forty plugins' metadata -- into
 `.config/claude/plugins/`. It records every prompt verbatim in
 `.config/claude/history.jsonl`, caches the changelog and a lookup of the
@@ -35,6 +36,15 @@ sits down in.
 The marketplace clone is the sharpest instance: "no plugins" describes the
 room's configuration, not its contents, from the first interactive start
 onward. Nothing here establishes whether that clone can be suppressed.
+
+> [!QUESTION] did the self-update finish, or fail halfway?
+> The staged binary is 61 MB and not executable; the file under `versions/`
+> is zero bytes. That reads either as an install that never completed or as
+> a marker scheme where the version directory records intent and the payload
+> stays in the cache. Which one it is decides whether the room silently runs
+> a different binary than the outer `$HOME` does -- and 59 of the room's
+> 66 MB hang on the answer. Settles by watching a second interactive start,
+> or by `strace`-ing the exec.
 
 Two of these matter beyond the ignore file. `history.jsonl` is a verbatim
 record of what was typed into a room whose purpose is unguarded experiments.
